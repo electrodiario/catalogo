@@ -146,6 +146,34 @@
   /* FOOTER */
   footer { text-align: center; padding: 28px; font-size: 11.5px; color: var(--muted); border-top: 1px solid var(--border); line-height: 2; }
 
+  /* FLOATING CTA */
+  .wa-cta {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 300;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #25D366;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 12px 16px;
+    border-radius: 999px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, .18);
+    transition: transform var(--tr), box-shadow var(--tr), background var(--tr);
+  }
+  .wa-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, .24);
+    background: #1fb95a;
+  }
+  .wa-cta span { color: #111; }
+  .wa-cta svg { flex-shrink: 0; }
+
   @keyframes fadeUp { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
   .card { animation: fadeUp .45s ease both; }
 
@@ -155,6 +183,7 @@
     .cname { font-size: 13px; }
     .cprice-val { font-size: 17px; }
     .main { padding: 16px 14px 56px; }
+    .wa-cta { right: 12px; bottom: 12px; padding: 11px 14px; font-size: 13px; }
   }
 </style>
 </head>
@@ -206,6 +235,13 @@
 
   <p>Catálogo Electrodiario Paraguay </p>
 </footer>
+
+<a class="wa-cta" href="https://wa.me/595981198633?text=Hola%2C%20quiero%20consultar%20por%20un%20producto" target="_blank" rel="noopener noreferrer" aria-label="Consultar aqui por WhatsApp">
+  <svg width="16" height="16" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+    <path d="M16.03 4C9.39 4 4 9.29 4 15.82c0 2.09.56 4.14 1.63 5.95L4 28l6.43-1.65a12.12 12.12 0 0 0 5.6 1.39h.01c6.64 0 12.03-5.29 12.03-11.82C28.07 9.29 22.68 4 16.03 4Zm0 21.66h-.01a9.97 9.97 0 0 1-5.08-1.39l-.37-.22-3.82.98 1.02-3.7-.24-.38a9.66 9.66 0 0 1-1.5-5.13c0-5.37 4.46-9.74 9.96-9.74 5.49 0 9.95 4.37 9.95 9.74 0 5.37-4.47 9.84-9.91 9.84Zm5.58-7.4c-.3-.15-1.8-.88-2.08-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.95 1.18-.18.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.45-.89-.78-1.49-1.74-1.66-2.03-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.68-1.62-.93-2.23-.24-.58-.48-.5-.68-.51h-.58c-.2 0-.53.07-.8.38-.28.3-1.05 1.02-1.05 2.48s1.08 2.86 1.23 3.06c.15.2 2.12 3.3 5.24 4.49.74.32 1.32.51 1.77.65.74.23 1.42.2 1.95.12.6-.09 1.8-.73 2.05-1.44.25-.71.25-1.31.18-1.44-.07-.13-.27-.2-.57-.35Z"/>
+  </svg>
+  <span>Consultar aqui</span>
+</a>
 
 <script>
 // ─── BRAND COLORS ───────────────────────────
