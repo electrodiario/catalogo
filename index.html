@@ -26,25 +26,69 @@
   }
   html { scroll-behavior: smooth; }
   body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
 
   /* HEADER */
   .header {
-    background: linear-gradient(135deg, #980040 0%, #C8005A 50%, #FF2D87 100%);
-    color: #fff; padding: 52px 32px 60px; position: relative; overflow: hidden;
+    min-height: clamp(220px, 35vw, 430px);
+    position: relative;
+    overflow: hidden;
+    background: #140008;
+    isolation: isolate;
   }
   .header::after {
-    content: '♡'; position: absolute; right: 32px; top: 16px;
-    font-size: 180px; opacity: .07; pointer-events: none; line-height: 1;
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.24));
+    z-index: 2;
   }
   .header::before {
-    content: ''; position: absolute; inset: 0; opacity: .05;
-    background: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%);
-    background-size: 20px 20px;
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background-image: url('images/Afiche publicitario4.png');
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
   }
-  .hi { max-width: 1200px; margin: 0 auto; position: relative; }
+  .hi {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 3;
+  }
   .eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 3.5px; text-transform: uppercase; opacity: .7; margin-bottom: 14px; }
   .htitle { font-family: 'Cormorant', serif; font-size: clamp(42px, 7vw, 72px); font-weight: 700; line-height: .95; letter-spacing: -1.5px; margin-bottom: 10px; }
-  .hsub { font-family: 'Cormorant', serif; font-size: clamp(18px, 3vw, 28px); font-style: italic; opacity: .85; margin-bottom: 28px; }
+  .hsub {
+    font-family: 'Cormorant', serif;
+    font-size: clamp(20px, 3.2vw, 32px);
+    font-style: italic;
+    font-weight: 600;
+    letter-spacing: .2px;
+    line-height: 1.2;
+    margin-bottom: 28px;
+    display: inline-block;
+    padding: 6px 14px 8px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(255,255,255,.24), rgba(255,255,255,.08));
+    border: 1px solid rgba(255,255,255,.34);
+    color: #fff;
+    text-shadow: 0 3px 16px rgba(0,0,0,.22);
+    backdrop-filter: blur(2px);
+  }
   .hbadges { display: flex; flex-wrap: wrap; gap: 8px; }
   .hbadge {
     background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.3);
@@ -188,6 +232,11 @@
 
   @media(max-width:600px){
     .header { padding: 32px 20px 40px; }
+    .header {
+      min-height: clamp(180px, 48vw, 260px);
+      padding: 0;
+    }
+    .header::before { background-position: 58% top; }
     .grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
     .cname { font-size: 13px; }
     .cprice-val { font-size: 17px; }
@@ -198,15 +247,8 @@
 </head>
 <body>
 
-<header class="header">
-  <div class="hi">
-    <p class="eyebrow">Electrodiario · Catálogo Oficial 2026</p>
-    <h1 class="htitle">Super Ofertas</h1>
-    <p class="hsub">Los mejores precios del país</p>
-    <div class="hbadges">
-      <span class="hbadge">✦ Pago por día</span>
-    </div>
-  </div>
+<header class="header" role="banner" aria-label="Cabecera del catálogo">
+  <h1 class="sr-only">Catálogo Electrodiario: Super Ofertas</h1>
 </header>
 
 <div class="nav-wrap">
@@ -242,7 +284,7 @@
 <footer>
   <p>* Imágenes ilustrativas · Hasta agotar stock </p>
 
-  <p>Catálogo Electrodiario Paraguay </p>
+  <p>Catálogo Equipa Hogar Paraguay </p>
 </footer>
 
 <a class="wa-cta" href="https://wa.me/595981198633?text=Hola%2C%20quiero%20consultar%20por%20un%20producto" target="_blank" rel="noopener noreferrer" aria-label="Consultar aqui por WhatsApp">
